@@ -71,9 +71,74 @@ heart-disease-eda/
 ### 📌 Feature Correlation Heatmap
 ![Correlation Heatmap](plots/heatmap.png)
 
+### 📦 Boxplots
+#### Cholesterol vs Chest Pain Type
+![Boxplot Cholesterol CP](plots/boxplot_chol_cp.png)
+
+#### Age vs Sex
+![Boxplot Age Sex](plots/boxplot_age_sex.png)
+
+### 📈 Scatterplots
+#### Age vs Max Heart Rate (by disease status)
+![Scatter Age Thalach](plots/scatter_age_thalach_num.png)
+
+#### Cholesterol vs ST Depression (by disease status)
+![Scatter Chol Oldpeak](plots/scatter_chol_oldpeak_num.png)
+
 All plots are saved in the `plots/` directory.
 
 ---
+
+---
+
+## 📊 EDA Observations & Insights
+
+### 🔍 1. Age Distribution
+- Most patients fall between **45 and 65 years** of age.
+- Distribution is roughly **normal with a slight right skew**.
+- Suggests that **middle-aged and older adults** are more commonly affected by heart disease.
+
+### 🔍 2. Cholesterol Distribution
+- Cholesterol values mostly lie between **200–250 mg/dL**, but a suspicious spike at **0 mg/dL** suggests **invalid entries or missing data**.
+- Distribution is **right-skewed with multiple outliers**, going up to 600 mg/dL.
+- Cholesterol levels vary drastically between individuals, and extreme values warrant further investigation.
+
+### 🔍 3. Correlation Heatmap
+- **`oldpeak`** (ST depression) shows a **moderate positive correlation** with heart disease presence (`num`).
+- **`thalch`** (max heart rate) shows a **moderate negative correlation** with disease presence.
+- Other numerical variables have weak correlations.
+- Indicates that **ST depression and max heart rate** may be valuable predictors for ML modeling.
+
+### 🔍 4. Boxplot: Cholesterol vs Chest Pain Type
+- Patients with **asymptomatic chest pain** have the **widest cholesterol range** and the most **extreme outliers**.
+- Those with **typical angina** have a **lower median cholesterol** level.
+- Chest pain type correlates with risk indicators like cholesterol.
+
+### 🔍 5. Boxplot: Age vs Sex
+- **Males slightly outnumber females** and have a **slightly higher median age**.
+- Overall age distribution between sexes is **very similar**.
+- No significant sex-based bias in age distribution.
+
+### 🔍 6. Scatterplot: Age vs Max Heart Rate (by Disease Status)
+- As **age increases**, **maximum heart rate decreases**, especially in patients diagnosed with heart disease.
+- Patients with heart disease tend to cluster in **lower thalach (heart rate)** values.
+
+### 🔍 7. Scatterplot: Cholesterol vs ST Depression (by Disease Status)
+- Higher **ST depression (`oldpeak`)** and higher **cholesterol** often appear together in patients with heart disease.
+- Healthy individuals mostly cluster in **low oldpeak and average cholesterol** ranges.
+
+---
+
+## 🧾 Summary of Findings
+
+- Patients in this dataset are predominantly **middle-aged males**.
+- **Oldpeak, chest pain type, and thalach** emerged as key variables in distinguishing heart disease presence.
+- **Cholesterol values require cleaning** (e.g., removing or imputing 0 values).
+- **Multivariate interactions** like **high cholesterol + high ST depression** or **low heart rate + older age** are strong indicators of disease.
+- These findings provide valuable direction for feature selection in further predictive modeling.
+
+---
+
 
 ## ▶️ How to Run
 

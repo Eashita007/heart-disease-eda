@@ -76,3 +76,44 @@ sns.heatmap(numeric_df.corr(), annot=True, cmap="coolwarm")
 plt.title("Feature Correlation Heatmap (Numerical Only)")
 plt.savefig("plots/heatmap.png")
 plt.clf()
+
+# -----------------------------
+# Step 6: Boxplots
+# -----------------------------
+
+# Boxplot: Cholesterol vs Chest Pain Type
+sns.boxplot(data=df, x='cp', y='chol')
+plt.title("Cholesterol Levels by Chest Pain Type")
+plt.xlabel("Chest Pain Type")
+plt.ylabel("Cholesterol")
+plt.xticks(rotation=45)
+plt.savefig("plots/boxplot_chol_cp.png")
+plt.clf()
+
+# Boxplot: Age vs Sex
+sns.boxplot(data=df, x='sex', y='age')
+plt.title("Age Distribution by Sex")
+plt.xlabel("Sex")
+plt.ylabel("Age")
+plt.savefig("plots/boxplot_age_sex.png")
+plt.clf()
+
+# -----------------------------
+# Step 7: Scatterplots
+# -----------------------------
+
+# Scatterplot: Age vs Max Heart Rate by Heart Disease Presence
+sns.scatterplot(data=df, x='age', y='thalch', hue='num', palette='Set1')
+plt.title("Age vs Max Heart Rate by Disease Status")
+plt.xlabel("Age")
+plt.ylabel("Max Heart Rate (thalch)")
+plt.savefig("plots/scatter_age_thalach_num.png")
+plt.clf()
+
+# Scatterplot: Cholesterol vs ST Depression
+sns.scatterplot(data=df, x='chol', y='oldpeak', hue='num', palette='Set2')
+plt.title("Cholesterol vs ST Depression by Disease Status")
+plt.xlabel("Cholesterol")
+plt.ylabel("Oldpeak (ST Depression)")
+plt.savefig("plots/scatter_chol_oldpeak_num.png")
+plt.clf()
